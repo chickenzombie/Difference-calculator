@@ -1,12 +1,11 @@
 {
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "git diff realisation ",
+  "main": "gendiff.js",
   "dependencies": {
     "commander": "^9.4.0"
   },
-  "name": "frontend-project-46",
-  "description": "[![Actions Status](https://github.com/chickenzombie/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions)",
-  "version": "1.0.0",
-  "main": "gendiff.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
