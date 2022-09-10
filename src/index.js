@@ -26,7 +26,7 @@ const genDiff = (data1, data2) => {
       return [` - ${key} : ${data1[key]}`, ` + ${key} : ${data2[key]}`];
     }
   }));
-  `{\n${result.join('\n')}\n}`;
+  return `{\n${result.join('\n')}\n}`;
 };
 
 export default (filepath1, filepath2) => {
