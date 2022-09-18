@@ -7,12 +7,8 @@ const genDiff = (data1, data2) => {
   const keys2 = Object.keys(data2);
   const keys = _.union(keys1, keys2);
   const sortedKeys = keys.sort();
-  // CTRL + K + C && CTRL + K + U
-  // Знак - означает, что ключ отсутствовал в первом объекте, но был добавлен во второй
-  // Знак + означает, что ключ был в первом объекте, но отсутствует во втором
-  // Отсутствие знака означает, что ключ есть в обоих файлах, и его значения совпадают
 
-  const result = sortedKeys.flatMap(((key) => {
+  const result = sortedKeys.flatMap((key) => {
     if (!Object.hasOwn(data1, key)) {
       return ` + ${key} : ${data2[key]}`;
     }
@@ -25,7 +21,7 @@ const genDiff = (data1, data2) => {
     if (data1[key] !== data2[key]) {
       return [` - ${key} : ${data1[key]}`, ` + ${key} : ${data2[key]}`];
     }
-  }));
+  });
   return `{\n${result.join('\n')}\n}`;
 };
 
