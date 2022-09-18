@@ -15,12 +15,10 @@ const genDiff = (data1, data2) => {
     if (!Object.hasOwn(data2, key)) {
       return ` - ${key} : ${data1[key]}`;
     }
-    if (data1[key] === data2[key]) {
-      return `   ${key} : ${data1[key]}`;
-    }
     if (data1[key] !== data2[key]) {
       return [` - ${key} : ${data1[key]}`, ` + ${key} : ${data2[key]}`];
     }
+    return `   ${key} : ${data1[key]}`;
   });
   return `{\n${result.join('\n')}\n}`;
 };

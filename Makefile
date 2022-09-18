@@ -6,7 +6,7 @@ gendiff:
 	bin/gendiff
 lint:
 	npx eslint .
-test:
+tests:
 	npm test
 test-coverage:
 	npm test -- --coverage
