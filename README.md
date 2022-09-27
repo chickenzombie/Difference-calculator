@@ -11,8 +11,8 @@ A difference calculator is a program that determines the difference between two 
 
 Features of the calculator:
 
-Supports various input formats: yaml, json
-Report generation as plain text, stylish and json
+- Supports various input formats: yaml, json
+- Report generation as plain text, stylish and json
 
 ## Example of usage
 ```
