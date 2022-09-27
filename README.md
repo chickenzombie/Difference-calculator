@@ -1,8 +1,10 @@
-### Hexlet tests
+### Hexlet tests:
 [![Actions Status](https://github.com/chickenzombie/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions)
 
-### CI check and project tests (by using Jest framework)
+### Tests (Jest) and Linter (ESlint) status:
 [![CI check](https://github.com/chickenzombie/frontend-project-46/actions/workflows/test.yml/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions/workflows/test.yml)
+
+### Maintainability and test coverage (both using Codeclimate) status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/13bb25d0d01315ffad2c/maintainability)](https://codeclimate.com/github/chickenzombie/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/13bb25d0d01315ffad2c/test_coverage)](https://codeclimate.com/github/chickenzombie/frontend-project-46/test_coverage)
 
@@ -61,7 +63,7 @@ You also can use short version (more information in Makefile):
 ```
 make diff-json
 ```
-or for example calculate difference between 2 yaml files
+or for example calculate difference between 2 yaml files:
 ```
 make diff-yaml or make diff-yaml/diff-yml
 ```
