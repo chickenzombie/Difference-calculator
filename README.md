@@ -1,7 +1,8 @@
+# Project status
 ### Hexlet tests:
 [![Actions Status](https://github.com/chickenzombie/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions)
 
-### Tests (Jest) and Linter (ESlint) status:
+### Tests (Jest) and linter (ESLint) status:
 [![CI check](https://github.com/chickenzombie/frontend-project-46/actions/workflows/test.yml/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions/workflows/test.yml)
 
 ### Maintainability and test coverage (both using Codeclimate) status:
