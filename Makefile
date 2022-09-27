@@ -14,3 +14,7 @@ diff-json:
 	gendiff __fixtures__/file1.json __fixtures__/file2.json
 diff-yml:
 	gendiff __fixtures__/file1.yml __fixtures__/file2.yml
+diff-yaml:
+	gendiff __fixtures__/file1.yml __fixtures__/file2.yml
+rec:
+	asciinema rec
