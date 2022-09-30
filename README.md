@@ -17,8 +17,22 @@ Features of the calculator:
 - Supports various input formats: yaml, json
 - Report generation as plain text, stylish and json
 
+## To get info about propgram commands type:
+```
+gendiff -h/gendiff --help
+```
+```
+Usage: gendiff [options] <filepath1> <filepath2>
+
+Compares two configuration files and shows a difference
+
+Options:
+  -V, --version        output the version number
+  -f, --format [type]  output format (default: "stylish")
+  -h, --help           display help for command
+```
 ## Example of usage
-```javascript
+```
 # plain format
 gendiff --format plain path/to/file.yml another/path/file.json
 
@@ -55,7 +69,7 @@ cd frontend-project-46
 ```
 3. Install packages:
 ```
-install
+make install
 ```
 
 ## Example of work
