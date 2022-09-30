@@ -17,7 +17,7 @@ const stringify = (dataToString, depth) => {
   return `{\n${stringifyFormat.join('\n')}\n${indent(depth - 1)}  }`;
 };
 
-const stylish = (data) => {
+const stylishFormat = (data) => {
   const iter = (tree, depth) => tree.flatMap((node) => {
     switch (node.type) {
       case 'added':
@@ -37,4 +37,4 @@ const stylish = (data) => {
   return `{\n${iter(data, 1).join('\n')}\n}`;
 };
 
-export default stylish;
+export default stylishFormat;

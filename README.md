@@ -1,11 +1,11 @@
-# Project status
-### Hexlet tests:
+# Program status
+## Hexlet tests:
 [![Actions Status](https://github.com/chickenzombie/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions)
 
-### Tests (Jest) and linter (ESLint) status:
+## Tests (Jest) and linter (ESLint) status:
 [![CI check](https://github.com/chickenzombie/frontend-project-46/actions/workflows/test.yml/badge.svg)](https://github.com/chickenzombie/frontend-project-46/actions/workflows/test.yml)
 
-### Maintainability and test coverage (both using Codeclimate) status:
+## Maintainability and test coverage (both using Codeclimate) status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/13bb25d0d01315ffad2c/maintainability)](https://codeclimate.com/github/chickenzombie/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/13bb25d0d01315ffad2c/test_coverage)](https://codeclimate.com/github/chickenzombie/frontend-project-46/test_coverage)
 
@@ -18,7 +18,7 @@ Features of the calculator:
 - Report generation as plain text, stylish and json
 
 ## Example of usage
-```
+```javascript
 # plain format
 gendiff --format plain path/to/file.yml another/path/file.json
 
@@ -66,6 +66,6 @@ make diff-json
 ```
 or for example calculate difference between 2 yaml files:
 ```
-make diff-yaml or make diff-yaml/diff-yml
+make diff-yaml or make diff-yml
 ```
 [![asciicast](https://asciinema.org/a/524141.svg)](https://asciinema.org/a/524141)

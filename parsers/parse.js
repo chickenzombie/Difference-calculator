@@ -9,6 +9,6 @@ export default (data, format) => {
     case '.yaml':
       return yaml.load(data);
     default:
-      throw new Error('Format is not defined');
+      throw new Error(`${format} is not defined`);
   }
 };
