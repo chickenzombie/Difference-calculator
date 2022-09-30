@@ -17,7 +17,7 @@ Features of the calculator:
 - Supports various input formats: yaml, json
 - Report generation as plain text, stylish and json
 
-## To get info about propgram commands type:
+## To get info about program commands type:
 ```
 gendiff -h/gendiff --help
 ```
