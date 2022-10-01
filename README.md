@@ -19,7 +19,7 @@ Features of the calculator:
 
 ## To get info about program commands type:
 ```
-gendiff -h/gendiff --help
+gendiff -h or gendiff --help
 ```
 ```
 Usage: gendiff [options] <filepath1> <filepath2>
@@ -91,3 +91,11 @@ make diff-plain
 make diff-yml-plain
 ```
 [![asciicast](https://asciinema.org/a/euo3NvoF26cvQzaa2CjharOaW.svg)](https://asciinema.org/a/euo3NvoF26cvQzaa2CjharOaW)
+### 3. Difference between 2 files with json formatter
+```
+make diff-json
+```
+```
+make diff-yml-json
+```
+[![asciicast](https://asciinema.org/a/bgnmhwcjWyBgWuGiy7ph2MCgU.svg)](https://asciinema.org/a/bgnmhwcjWyBgWuGiy7ph2MCgU)
