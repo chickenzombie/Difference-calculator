@@ -7,6 +7,8 @@ const selectFormat = (data, typeOfFormat) => {
       return stylishFormat(data);
     case 'plain':
       return plainFormat(data);
+    case 'json':
+      return JSON.stringify(data);
     default:
       throw new Error(`${typeOfFormat} is not defined`);
   }

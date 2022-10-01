@@ -9,6 +9,7 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const stylishFormat = readFileSync(getFixturePath('stylish.txt'), 'utf-8');
 const plainFormat = readFileSync(getFixturePath('plain.txt'), 'utf-8');
+const jsonFormat = readFileSync(getFixturePath('json.txt'), 'utf-8');
 
 test('test stylish formatter', () => {
   expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toBe(stylishFormat);
@@ -18,4 +19,9 @@ test('test stylish formatter', () => {
 test('test plain formatter', () => {
   expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toBe(plainFormat);
   expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'plain')).toBe(plainFormat);
+});
+
+test('test json formatter', () => {
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toBe(jsonFormat);
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'json')).toBe(jsonFormat);
 });

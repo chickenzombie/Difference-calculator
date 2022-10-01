@@ -73,13 +73,21 @@ make install
 ```
 
 ## Example of work
-### 1. Difference between 2 json files (stylish formatter set by default).
-You also can use short version (more information in Makefile):
+### 1. Difference between 2 files with stylish formatter (set by default):
+You can use short version of data input (more information in Makefile). 2 json files are compared by default.
 ```
-make diff-json
+make diff
 ```
 or for example calculate difference between 2 yaml files:
 ```
-make diff-yaml or make diff-yml
+make diff-yml
 ```
-[![asciicast](https://asciinema.org/a/524141.svg)](https://asciinema.org/a/524141)
+[![asciicast](https://asciinema.org/a/BRgk1PXnTnLuj2zyVLn9y5sWj.svg)](https://asciinema.org/a/BRgk1PXnTnLuj2zyVLn9y5sWj)
+### 2. Difference between 2 files with plain formatter
+```
+make diff-plain
+```
+```
+make diff-yml-plain
+```
+[![asciicast](https://asciinema.org/a/euo3NvoF26cvQzaa2CjharOaW.svg)](https://asciinema.org/a/euo3NvoF26cvQzaa2CjharOaW)
