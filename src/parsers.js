@@ -1,14 +1,16 @@
 import yaml from 'js-yaml';
 
-export default (data, format) => {
+const parseData = (data, format) => {
   switch (format) {
-    case '.json':
+    case 'json':
       return JSON.parse(data);
-    case '.yml':
+    case 'yml':
       return yaml.load(data);
-    case '.yaml':
+    case 'yaml':
       return yaml.load(data);
     default:
       throw new Error(`${format} is not defined`);
   }
 };
+
+export default parseData;

@@ -2,13 +2,12 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "git diff realisation",
-  "main": "gendiff.js",
+  "main": "bin/gendiff.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
   "type": "module",
   "dependencies": {
-    "@jest/globals": "^29.0.3",
     "ci": "^2.2.0",
     "commander": "^9.4.0",
     "js-yaml": "^4.1.0",
@@ -28,6 +27,7 @@
   },
   "homepage": "https://github.com/chickenzombie/frontend-project-46#readme",
   "devDependencies": {
+    "@jest/globals": "^29.0.3",
     "eslint": "^8.23.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",

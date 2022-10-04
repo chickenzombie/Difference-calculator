@@ -1,20 +1,19 @@
 import { readFileSync } from 'node:fs';
 import path from 'path';
-import parse from '../parsers/parse.js';
-import treeBuilder from './treeBuilder.js';
-import selectFormat from './formatters/index.js';
+import parseData from './parsers.js';
+import buildDiffTree from './treeBuilder.js';
+import format from './formatters/index.js';
+
+const getExtractFormat = (filepath) => path.extname(filepath).slice(1);
+const getPathToFile = (filepath) => path.resolve(process.cwd(), filepath);
+const getData = (filepath) => parseData(readFileSync(filepath, 'utf-8'), getExtractFormat(filepath));
 
 const genDiff = (filepath1, filepath2, typeOfFormat = 'stylish') => {
-  const format1 = path.extname(filepath1);
-  const format2 = path.extname(filepath2);
+  const data1 = getData(getPathToFile(filepath1));
+  const data2 = getData(getPathToFile(filepath2));
 
-  const data1 = readFileSync(path.resolve(filepath1), 'utf-8');
-  const data2 = readFileSync(path.resolve(filepath2), 'utf-8');
-
-  const parsedData1 = parse(data1, format1);
-  const parsedData2 = parse(data2, format2);
-  const diffTree = treeBuilder(parsedData1, parsedData2);
-  return selectFormat(diffTree, typeOfFormat);
+  const diffTree = buildDiffTree(data1, data2);
+  return format(diffTree, typeOfFormat);
 };
 
 export default genDiff;
