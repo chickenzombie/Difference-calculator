@@ -17,6 +17,8 @@ Features of the calculator:
 - Supports various input formats: yaml, json
 - Report generation as plain text, stylish and json
 
+Current version: 0.9.1
+
 ## To get info about program commands type:
 ```
 gendiff -h or gendiff --help
