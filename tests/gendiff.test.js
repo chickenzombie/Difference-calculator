@@ -12,7 +12,7 @@ const expectedPlainFormat = readFileSync(getFixturePath('plain.txt'), 'utf-8');
 const expectedJSONFormat = readFileSync(getFixturePath('json.txt'), 'utf-8');
 
 test('test stylish formatter', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toBe(expectedStylishFormat);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish')).toBe(expectedStylishFormat);
   expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'stylish')).toBe(expectedStylishFormat);
 });
 
