@@ -10,6 +10,7 @@ program
   .description('Compares two configuration files and shows a difference')
   .option('-f, --format [type]', 'output format', 'stylish')
   .action((filepath1, filepath2) => {
-    console.log(genDiff(filepath1, filepath2, program.opts().format));
+    console.log(genDiff(filepath1, filepath2, program.opts().typeOfFormat));
   });
+
 program.parse(process.argv);
