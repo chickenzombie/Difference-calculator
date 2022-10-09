@@ -8,7 +8,6 @@
   },
   "type": "module",
   "dependencies": {
-    "ci": "^2.2.0",
     "commander": "^9.4.0",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"

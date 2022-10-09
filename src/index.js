@@ -4,16 +4,16 @@ import parseData from './parsers.js';
 import buildDiffTree from './treeBuilder.js';
 import format from './formatters/index.js';
 
-const getExtractFormat = (filepath) => path.extname(filepath).slice(1);
-const getPathToFile = (filepath) => path.resolve(process.cwd(), filepath);
-const getData = (filepath) => parseData(readFileSync(filepath, 'utf-8'), getExtractFormat(filepath));
+const extractFormat = (filepath) => path.extname(filepath).slice(1);
+const makeFullPath = (filepath) => path.resolve(process.cwd(), filepath);
+const getData = (filepath) => parseData(readFileSync(filepath, 'utf-8'), extractFormat(filepath));
 
-const genDiff = (filepath1, filepath2, typeOfFormat = 'stylish') => {
-  const data1 = getData(getPathToFile(filepath1));
-  const data2 = getData(getPathToFile(filepath2));
+const genDiff = (filepath1, filepath2, outputFormat = 'stylish') => {
+  const data1 = getData(makeFullPath(filepath1));
+  const data2 = getData(makeFullPath(filepath2));
 
   const diffTree = buildDiffTree(data1, data2);
-  return format(diffTree, typeOfFormat);
+  return format(diffTree, outputFormat);
 };
 
 export default genDiff;
