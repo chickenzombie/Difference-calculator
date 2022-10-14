@@ -16,8 +16,8 @@ const stringify = (value, depth) => {
 const render = (node, depth) => {
   switch (node.type) {
     case 'root': {
-      const output = node.children.map((children) => render(children, depth + 1));
-      return `{\n${output.join('\n')}\n}`;
+      const rootOutput = node.children.map((children) => render(children, depth + 1));
+      return `{\n${rootOutput.join('\n')}\n}`;
     }
     case 'added': {
       return `${indent(depth)}+ ${node.key}: ${stringify(node.value, depth + 1)}`;
@@ -30,15 +30,15 @@ const render = (node, depth) => {
     }
     case 'changed': {
       const output1 = `${indent(depth)}- ${node.key}: ${stringify(node.value1, depth + 1)}`;
-      const input1 = `${indent(depth)}+ ${node.key}: ${stringify(node.value2, depth + 1)}`;
-      return `${output1}\n${input1}`;
+      const output2 = `${indent(depth)}+ ${node.key}: ${stringify(node.value2, depth + 1)}`;
+      return `${output1}\n${output2}`;
     }
     case 'nested': {
-      const output2 = node.children.map((children) => render(children, depth + 1));
-      return `${indent(depth)}  ${node.key}: {\n${output2.join('\n')}\n${indent(depth)}  }`;
+      const nestedOutput = node.children.map((children) => render(children, depth + 1));
+      return `${indent(depth)}  ${node.key}: {\n${nestedOutput.join('\n')}\n${indent(depth)}  }`;
     }
     default:
-      return new Error('This tree is bad. Try another tree');
+      return new Error(`${node.type} is not defined`);
   }
 };
 
