@@ -14,38 +14,17 @@ const expectedStylish = readFixtures('stylish.txt');
 const expectedPlain = readFixtures('plain.txt');
 const expectedJSON = readFixtures('json.txt');
 
-describe('default formatter', () => {
+describe('genDiff module', () => {
   test('json extension', () => {
-    expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toBe(expectedStylish);
-  });
-  test('yaml extension', () => {
-    expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toBe(expectedStylish);
-  });
-});
-
-describe('stylish formatter', () => {
-  test('json extension', () => {
+    expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(expectedStylish);
     expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish')).toBe(expectedStylish);
-  });
-  test('yaml extension', () => {
-    expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'stylish')).toBe(expectedStylish);
-  });
-});
-
-describe('plain formatter', () => {
-  test('json extension', () => {
     expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toBe(expectedPlain);
-  });
-  test('yaml extension', () => {
-    expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'plain')).toBe(expectedPlain);
-  });
-});
-
-describe('json formatter', () => {
-  test('json extension', () => {
     expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toBe(expectedJSON);
   });
   test('yaml extension', () => {
+    expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toEqual(expectedStylish);
+    expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'stylish')).toBe(expectedStylish);
+    expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'plain')).toBe(expectedPlain);
     expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'json')).toBe(expectedJSON);
   });
 });

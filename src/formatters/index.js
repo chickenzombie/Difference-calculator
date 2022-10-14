@@ -1,8 +1,8 @@
 import plainFormat from './plain.js';
 import stylishFormat from './stylish.js';
 
-const format = (data, typeOfFormat) => {
-  switch (typeOfFormat) {
+const format = (data, outputFormat) => {
+  switch (outputFormat) {
     case 'stylish':
       return stylishFormat(data);
     case 'plain':
@@ -10,7 +10,7 @@ const format = (data, typeOfFormat) => {
     case 'json':
       return JSON.stringify(data);
     default:
-      throw new Error(`${typeOfFormat} is not defined`);
+      throw new Error(`${outputFormat} is not defined`);
   }
 };
 

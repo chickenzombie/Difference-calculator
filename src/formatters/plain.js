@@ -23,12 +23,12 @@ const plainFormat = (data) => {
       case 'unchanged':
         return null;
       case 'nested':
-        return `${iter(node.value, [path])}`;
+        return `${iter(node.children, [path])}`;
       default:
         throw new Error('Tree is not defined');
     }
   })).join('\n');
-  return iter(data, []);
+  return iter(data.children, []);
 };
 
 export default plainFormat;
