@@ -7,28 +7,33 @@ const stringify = (value) => {
   if (_.isString(value)) {
     return `'${value}'`;
   }
-  return value;
+  return String(value);
 };
 
-const plainFormat = (data) => {
-  const iter = (tree, acc) => _.compact(tree.map((node) => {
-    const path = [...acc, node.key].join('.');
-    switch (node.type) {
-      case 'added':
-        return `Property '${path}' was added with value: ${stringify(node.value)}`;
-      case 'removed':
-        return `Property '${path}' was removed`;
-      case 'changed':
-        return `Property '${path}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
-      case 'unchanged':
-        return null;
-      case 'nested':
-        return `${iter(node.children, [path])}`;
-      default:
-        throw new Error('Tree is not defined');
+const getPropertyName = (properties, property) => [...properties, property].join('.');
+
+const renderPlain = (node, properties) => {
+  switch (node.type) {
+    case 'root': {
+      const output = node.children.flatMap((child) => renderPlain(child, properties));
+      return output.join('\n');
     }
-  })).join('\n');
-  return iter(data.children, []);
+    case 'added':
+      return `Property '${getPropertyName(properties, node.key)}' was added with value: ${stringify(node.value)}`;
+    case 'removed':
+      return `Property '${getPropertyName(properties, node.key)}' was removed`;
+    case 'changed':
+      return `Property '${getPropertyName(properties, node.key)}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
+    case 'unchanged':
+      return [];
+    case 'nested':
+      const output = node.children.flatMap((child) => renderPlain(child, properties));
+      return output.join('\n');
+    default:
+      throw new Error('Tree is not defined');
+  }
 };
 
-export default plainFormat;
+const makePlain = (tree) => renderPlain(tree, []);
+
+export default makePlain;
