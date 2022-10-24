@@ -26,9 +26,10 @@ const render = (node, properties) => {
       return `Property '${getPropertyName(properties, node.key)}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
     case 'unchanged':
       return [];
-    case 'nested':
+    case 'nested': {
       const output = node.children.flatMap((child) => render(child, [...properties, node.key]));
       return output.join('\n');
+    }
     default:
       throw new Error('Tree is not defined');
   }
