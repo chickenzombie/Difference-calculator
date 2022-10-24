@@ -10,34 +10,34 @@ const stringify = (data, depth, renderStylish) => {
   return `{\n${output.join('\n')}\n${indent(depth)}  }`;
 };
 
-const renderStylish = (node, depth) => {
+const render = (node, depth) => {
   switch (node.type) {
     case 'root': {
-      const output = node.children.map((children) => renderStylish(children, depth + 1));
+      const output = node.children.map((children) => render(children, depth + 1));
       return `{\n${output.join('\n')}\n}`;
     }
     case 'added': {
-      return `${indent(depth)}+ ${node.key}: ${stringify(node.value, depth, renderStylish)}`;
+      return `${indent(depth)}+ ${node.key}: ${stringify(node.value, depth, render)}`;
     }
     case 'removed': {
-      return `${indent(depth)}- ${node.key}: ${stringify(node.value, depth, renderStylish)}`;
+      return `${indent(depth)}- ${node.key}: ${stringify(node.value, depth, render)}`;
     }
     case 'unchanged':
-      return `${indent(depth)}  ${node.key}: ${stringify(node.value, depth, renderStylish)}`;
+      return `${indent(depth)}  ${node.key}: ${stringify(node.value, depth, render)}`;
     case 'changed': {
-      const output1 = `${indent(depth)}- ${node.key}: ${stringify(node.value1, depth, renderStylish)}`;
-      const output2 = `${indent(depth)}+ ${node.key}: ${stringify(node.value2, depth, renderStylish)}`;
+      const output1 = `${indent(depth)}- ${node.key}: ${stringify(node.value1, depth, render)}`;
+      const output2 = `${indent(depth)}+ ${node.key}: ${stringify(node.value2, depth, render)}`;
       return `${output1}\n${output2}`;
     }
     case 'nested': {
-      const output = node.children.map((children) => renderStylish(children, depth + 1));
+      const output = node.children.map((children) => render(children, depth + 1));
       return `${indent(depth)}  ${node.key}: {\n${output.join('\n')}\n${indent(depth)}  }`;
     }
     default:
-      return new Error(`${node.type} is not defined`);
+      throw new Error(`${node.type} is not defined`);
   }
 };
 
-const makeStylish = (tree) => renderStylish(tree, 0);
+const renderStylish = (tree) => render(tree, 0);
 
-export default makeStylish;
+export default renderStylish;

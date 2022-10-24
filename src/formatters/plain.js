@@ -12,10 +12,10 @@ const stringify = (value) => {
 
 const getPropertyName = (properties, property) => [...properties, property].join('.');
 
-const renderPlain = (node, properties) => {
+const render = (node, properties) => {
   switch (node.type) {
     case 'root': {
-      const output = node.children.flatMap((child) => renderPlain(child, properties));
+      const output = node.children.flatMap((child) => render(child, properties));
       return output.join('\n');
     }
     case 'added':
@@ -27,13 +27,13 @@ const renderPlain = (node, properties) => {
     case 'unchanged':
       return [];
     case 'nested':
-      const output = node.children.flatMap((child) => renderPlain(child, properties));
+      const output = node.children.flatMap((child) => render(child, [...properties, node.key]));
       return output.join('\n');
     default:
       throw new Error('Tree is not defined');
   }
 };
 
-const makePlain = (tree) => renderPlain(tree, []);
+const renderPlain = (tree) => render(tree, []);
 
-export default makePlain;
+export default renderPlain;
