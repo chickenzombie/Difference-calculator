@@ -9,7 +9,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/13bb25d0d01315ffad2c/maintainability)](https://codeclimate.com/github/chickenzombie/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/13bb25d0d01315ffad2c/test_coverage)](https://codeclimate.com/github/chickenzombie/frontend-project-46/test_coverage)
 
-# Project decription
+# Caluclator description
 A difference calculator is a program that determines the difference between two data structures. This is a popular task for which there are many online services, such as http://www.jsondiff.com/. A similar mechanism is used when outputting tests or when automatically tracking changes in configuration files.
 
 Features of the calculator:
@@ -17,7 +17,7 @@ Features of the calculator:
 - Supports various input formats: yaml, json
 - Report generation as plain text, stylish and json
 
-Current version: 0.9.1
+Current version: 0.0.9
 
 ## To get info about program commands type:
 ```
@@ -85,7 +85,7 @@ or for example calculate difference between 2 yaml files:
 make diff-yml
 ```
 [![asciicast](https://asciinema.org/a/BRgk1PXnTnLuj2zyVLn9y5sWj.svg)](https://asciinema.org/a/BRgk1PXnTnLuj2zyVLn9y5sWj)
-### 2. Difference between 2 files with plain formatter
+### 2. Difference between 2 files with plain formatter:
 ```
 make diff-plain
 ```
@@ -93,7 +93,7 @@ make diff-plain
 make diff-yml-plain
 ```
 [![asciicast](https://asciinema.org/a/euo3NvoF26cvQzaa2CjharOaW.svg)](https://asciinema.org/a/euo3NvoF26cvQzaa2CjharOaW)
-### 3. Difference between 2 files with json formatter
+### 3. Difference between 2 files with json formatter:
 ```
 make diff-json
 ```
